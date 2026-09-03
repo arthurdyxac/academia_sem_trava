@@ -177,7 +177,7 @@
     .material { display: grid; grid-template-rows: 260px 1fr; overflow: hidden; border: 1px solid #ddd7ce; border-radius: 19px; background: white; transition: .25s ease; }
     .material:hover { transform: translateY(-6px); box-shadow: 0 20px 55px rgba(0,0,0,.13); }
     .material-visual { display: grid; place-items: center; overflow: hidden; padding: 22px; background: #141518; }
-    .material-visual img { height: 100%; width: auto; border-radius: 8px; box-shadow: 0 13px 35px rgba(0,0,0,.5); }
+    .material-visual img { display: block; width: 100%; height: 100%; max-width: 100%; min-width: 0; object-fit: contain; object-position: center; border-radius: 8px; box-shadow: 0 13px 35px rgba(0,0,0,.5); transform: translateZ(0); -webkit-transform: translateZ(0); }
     .material-copy { padding: 24px; }
     .material-copy small { color: var(--red); font-weight: 950; text-transform: uppercase; letter-spacing: .09em; }
     .material-copy h3 { margin: 8px 0 12px; }
@@ -440,12 +440,12 @@
         </div>
         <div class="carousel-shell reveal" data-carousel>
           <div class="carousel-track" tabindex="0" aria-label="Prévia dos materiais. Deslize para ver mais.">
-            <div class="preview is-active"><img src="frequencia.webp" alt="Escolha da frequência de treino" loading="lazy"></div>
-            <div class="preview"><img src="ficha.webp" alt="Como ler a ficha" loading="lazy"></div>
-            <div class="preview"><img src="carga.webp" alt="Como escolher a carga" loading="lazy"></div>
-            <div class="preview"><img src="registro.webp" alt="Execute, registre e progrida" loading="lazy"></div>
-            <div class="preview"><img src="calendario.webp" alt="Calendário dos 30 dias" loading="lazy"></div>
-            <div class="preview"><img src="primeiro-dia.webp" alt="Primeiro dia na academia" loading="lazy"></div>
+            <div class="preview is-active"><img src="frequencia.webp" alt="Escolha da frequência de treino" loading="eager" fetchpriority="high" decoding="async"></div>
+            <div class="preview"><img src="ficha.webp" alt="Como ler a ficha" loading="lazy" decoding="async"></div>
+            <div class="preview"><img src="carga.webp" alt="Como escolher a carga" loading="lazy" decoding="async"></div>
+            <div class="preview"><img src="registro.webp" alt="Execute, registre e progrida" loading="lazy" decoding="async"></div>
+            <div class="preview"><img src="calendario.webp" alt="Calendário dos 30 dias" loading="lazy" decoding="async"></div>
+            <div class="preview"><img src="primeiro-dia.webp" alt="Primeiro dia na academia" loading="lazy" decoding="async"></div>
           </div>
           <div class="carousel-ui"><button class="carousel-arrow prev" type="button" aria-label="Anterior">←</button><div class="carousel-dots" aria-label="Posição no carrossel"></div><button class="carousel-arrow next" type="button" aria-label="Próximo">→</button></div>
         </div>
