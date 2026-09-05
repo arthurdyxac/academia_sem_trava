@@ -176,8 +176,7 @@
     .materials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 46px; }
     .material { display: grid; grid-template-rows: 260px 1fr; overflow: hidden; border: 1px solid #ddd7ce; border-radius: 19px; background: white; transition: .25s ease; }
     .material:hover { transform: translateY(-6px); box-shadow: 0 20px 55px rgba(0,0,0,.13); }
-    .material-visual { display: grid; place-items: center; overflow: hidden; padding: 22px; background: #141518; }
-    .material-visual img { display: block; width: 100%; height: 100%; max-width: 100%; min-width: 0; object-fit: contain; object-position: center; border-radius: 8px; box-shadow: 0 13px 35px rgba(0,0,0,.5); transform: translateZ(0); -webkit-transform: translateZ(0); }
+    .material-visual { overflow: hidden; padding: 22px; background-color: #141518; background-image: var(--material-image); background-repeat: no-repeat; background-position: center; background-size: calc(100% - 44px) calc(100% - 44px); }
     .material-copy { padding: 24px; }
     .material-copy small { color: var(--red); font-weight: 950; text-transform: uppercase; letter-spacing: .09em; }
     .material-copy h3 { margin: 8px 0 12px; }
@@ -389,7 +388,7 @@
       <a class="brand" href="#inicio" aria-label="Academia Sem Trava — início"><img src="logo.webp" alt="Academia Sem Trava"></a>
       <div class="nav-links">
         <a href="#como-funciona">Como funciona</a>
-        <a href="#materiais">O que você recebe</a>
+        <a href="#preview">O que você recebe</a>
         <a href="#duvidas">Dúvidas</a>
         <a class="btn small checkout-link" href="#oferta">Quero começar</a>
       </div>
@@ -473,25 +472,6 @@
       </div>
     </section>
 
-    <section class="section red-wash">
-      <div class="wrap">
-        <div class="center reveal">
-          <div class="eyebrow">A nova crença</div>
-          <h2>Você não precisa saber montar um treino.<br><span class="red">Precisa saber seguir um bom.</span></h2>
-        </div>
-        <div class="belief reveal">
-          <div class="belief-card bad">
-            <h3>O que complica</h3>
-            <ul><li>Treinos diferentes toda semana</li><li>Excesso de técnicas avançadas</li><li>Opiniões conflitantes</li><li>Informação sem aplicação</li><li>Decisões no improviso</li></ul>
-          </div>
-          <div class="belief-card good">
-            <h3>O que faz sentido</h3>
-            <ul><li>Bons exercícios</li><li>Execução consistente</li><li>Organização</li><li>Registro comparável</li><li>Progressão com critério</li></ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section soft" id="como-funciona">
       <div class="wrap">
         <div class="reveal">
@@ -507,38 +487,6 @@
           <article class="step"><div class="step-num">05</div><h3>Progrida</h3><p>Saiba quando conquistar repetições, aumentar a carga ou manter.</p></article>
         </div>
         <div class="system-line reveal" aria-hidden="true"><div class="ticker"><span>Planeje</span><span>Execute</span><span>Registre</span><span>Compare</span><span>Progrida</span><span>Planeje</span><span>Execute</span><span>Registre</span><span>Compare</span><span>Progrida</span></div></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <div class="center reveal">
-          <div class="eyebrow">A mudança é prática</div>
-          <h2>Você deixa de depender da memória, do improviso <span class="red">e da sorte.</span></h2>
-        </div>
-        <div class="compare reveal">
-          <div class="compare-col before"><h3>Antes</h3><div class="compare-list"><div class="compare-item"><b>×</b><span>“O que eu treino hoje?”</span></div><div class="compare-item"><b>×</b><span>“Qual carga eu coloco?”</span></div><div class="compare-item"><b>×</b><span>“A máquina está ocupada. E agora?”</span></div><div class="compare-item"><b>×</b><span>“Será que eu evoluí?”</span></div></div></div>
-          <div class="compare-col after"><h3>Depois</h3><div class="compare-list"><div class="compare-item"><b>✓</b><span>Abre o treino da frequência escolhida.</span></div><div class="compare-item"><b>✓</b><span>Usa uma faixa e um critério de esforço.</span></div><div class="compare-item"><b>✓</b><span>Consulta uma substituição pela função.</span></div><div class="compare-item"><b>✓</b><span>Compara o registro anterior.</span></div></div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section light" id="materiais">
-      <div class="wrap">
-        <div class="center reveal">
-          <div class="eyebrow">O que você recebe</div>
-          <h2>Um sistema para cada momento em que <span class="red">surge uma dúvida.</span></h2>
-        </div>
-        <div class="materials">
-          <article class="material reveal"><div class="material-visual"><img src="capa.webp" alt="Protocolo de Treinos 30 Dias"></div><div class="material-copy"><small>Seu plano</small><h3>Protocolo de Treinos — 30 Dias</h3><p>Treinos estruturados para 3, 4 ou 5 dias por semana, com exercícios, séries, repetições e descansos.</p></div></article>
-          <article class="material reveal"><div class="material-visual"><img src="basico.webp" alt="Guia do Básico Bem Feito"></div><div class="material-copy"><small>Sua execução</small><h3>Guia do Básico Bem Feito</h3><p>Principais exercícios, posição, movimento, amplitude, controle, erros comuns e pontos de atenção.</p></div></article>
-          <article class="material reveal"><div class="material-visual"><img src="progressao.webp" alt="Método de Progressão"></div><div class="material-copy"><small>Sua evolução</small><h3>Método de Progressão</h3><p>Primeira carga, faixas de repetições, RIR, quando aumentar, quando manter e por que técnica vem antes do ego.</p></div></article>
-          <article class="material reveal"><div class="material-visual"><img src="registro.webp" alt="Diário de Treino Editável"></div><div class="material-copy"><small>Sua memória</small><h3>Diário de Treino Editável</h3><p>Registre cargas, repetições, esforço, observações e decisões diretamente pelo celular.</p></div></article>
-          <article class="material reveal"><div class="material-visual"><img src="automatico.webp" alt="Pare de Treinar no Automático"></div><div class="material-copy"><small>Sua correção de rota</small><h3>Pare de Treinar no Automático</h3><p>Erros que fazem muita gente treinar, cansar e ainda assim não avaliar o que está fazendo.</p></div></article>
-          <article class="material reveal"><div class="material-visual"><img src="substituicao.webp" alt="Guia de Substituição de Exercícios"></div><div class="material-copy"><small>Seus imprevistos</small><h3>Guia de Substituições</h3><p>Encontre alternativas pela função e pelo padrão de movimento quando um aparelho estiver indisponível.</p></div></article>
-          <article class="material reveal"><div class="material-visual"><img src="primeiro-dia.webp" alt="Primeiro Dia na Academia"></div><div class="material-copy"><small>Seu começo</small><h3>Primeiro Dia na Academia</h3><p>O que levar, como ajustar máquinas, escolher a carga, fazer a primeira série e registrar o treino.</p></div></article>
-          <article class="material reveal"><div class="material-visual"><img src="calendario.webp" alt="Calendário e checklist"></div><div class="material-copy"><small>Sua conferência</small><h3>Calendário + Checklist</h3><p>Organize os 30 dias e confira técnica, amplitude, descanso, carga e registro antes de encerrar.</p></div></article>
-        </div>
       </div>
     </section>
 
@@ -571,16 +519,11 @@
       </div>
     </section>
 
-    <section class="section soft" id="valor">
+    <section class="section soft" id="oferta">
       <div class="wrap">
         <div class="center reveal"><div class="eyebrow">Comparação honesta</div><h2>Orientação individual custa muito mais.<br><span class="red">Começar organizado não precisa.</span></h2><p class="lead center">O produto não substitui acompanhamento individual. Ele oferece um caminho educacional acessível para quem precisa organizar o básico.</p></div>
         <div class="value-grid reveal"><div class="value-card costly"><span class="value-label">Personal presencial individual<br>5x por semana</span><strong>R$ 640/mês</strong><span>Acompanhamento próximo e personalizado</span></div><div class="value-card costly"><span class="value-label">Consultoria ou<br>ficha individual</span><strong>A partir de R$ 80</strong><span>Avaliação e direcionamento individual</span></div><div class="value-card best"><span class="value-label">Academia Sem Trava<br>acesso completo</span><strong>R$ 9,90</strong><span>Pagamento único durante a validação</span></div></div>
-      </div>
-    </section>
-
-    <section class="section" id="oferta">
-      <div class="wrap">
-        <div class="center reveal"><div class="eyebrow">Por que este preço?</div><h2>Você está entrando na <span class="red">fase fundadora.</span></h2><p class="lead center">Antes de ampliarmos o projeto, liberamos o sistema completo por R$ 9,90 para validar a oferta com os primeiros compradores e reunir feedbacks reais de uso.</p></div>
+        <div class="center reveal" style="margin-top:64px"><div class="eyebrow">Por que este preço?</div><h2>Você está entrando na <span class="red">fase fundadora.</span></h2><p class="lead center">Antes de ampliarmos o projeto, liberamos o sistema completo por R$ 9,90 para validar a oferta com os primeiros compradores e reunir feedbacks reais de uso.</p></div>
         <div class="offer-box reveal">
           <div class="offer-grid">
             <div class="offer-cover"><img src="capa.webp" alt="Academia Sem Trava — protocolo de 30 dias"></div>
@@ -621,16 +564,13 @@
           </div>
           <div class="carousel-ui"><button class="carousel-arrow prev" type="button" aria-label="Resultado anterior">←</button><div class="carousel-dots" aria-label="Posição no carrossel"></div><button class="carousel-arrow next" type="button" aria-label="Próximo resultado">→</button></div>
         </div>
-      </div>
-    </section>
-
-    <section class="section soft" id="depoimentos">
-      <div class="wrap"><div class="center reveal"><div class="eyebrow">Quem já começou</div><h2>Mais clareza. Menos improviso.<br><span class="red">Na prática.</span></h2><p class="lead center">Relatos de quem usou o material para organizar a rotina e entender melhor o próprio treino.</p></div><div class="testimonials-placeholder reveal">
+        <div class="center reveal" id="depoimentos" style="margin-top:72px"><div class="eyebrow">Quem já começou</div><h2>Mais clareza. Menos improviso.<br><span class="red">Na prática.</span></h2><p class="lead center">Relatos de quem usou o material para organizar a rotina e entender melhor o próprio treino.</p></div><div class="testimonials-placeholder reveal">
         <article class="testimonial"><div class="testimonial-head"><img src="lucas-m.jpeg" alt="Lucas M." loading="lazy"><div><strong>Lucas M.</strong><span class="stars" aria-label="5 de 5 estrelas">★★★★★</span></div></div><p>“O que mais gostei foi que não fica inventando exercício diferente toda hora. Abri o treino no celular e consegui seguir sem ficar pensando no que fazer depois.”</p></article>
         <article class="testimonial"><div class="testimonial-head"><img src="mariana-r.jpeg" alt="Mariana R." loading="lazy"><div><strong>Mariana R.</strong><span class="stars" aria-label="5 de 5 estrelas">★★★★★</span></div></div><p>“Eu sempre ficava meio perdida com carga e repetições. O material é bem direto e finalmente consegui entender melhor como acompanhar meus treinos.”</p></article>
         <article class="testimonial"><div class="testimonial-head"><img src="gabriel-s.jpeg" alt="Gabriel S." loading="lazy"><div><strong>Gabriel S.</strong><span class="stars" aria-label="5 de 5 estrelas">★★★★★</span></div></div><p>“Achei que seria só mais uma ficha de treino, mas tem bastante coisa explicando execução e progressão. Pelo valor, me surpreendeu bastante.”</p></article>
         <article class="testimonial"><div class="testimonial-head"><img src="ana-c.jpeg" alt="Ana C." loading="lazy"><div><strong>Ana C.</strong><span class="stars" aria-label="5 de 5 estrelas">★★★★★</span></div></div><p>“Voltei pra academia agora e queria justamente algo simples pra me organizar. Gostei porque consigo olhar tudo pelo celular durante o treino sem complicação.”</p></article>
-      </div></div>
+      </div>
+      </div>
     </section>
 
     <section class="section" id="duvidas">
