@@ -101,6 +101,8 @@
     .btn:focus-visible { outline: 3px solid white; outline-offset: 4px; }
     .btn.small { min-height: 44px; padding: 10px 17px; font-size: .76rem; }
     .btn.large { min-height: 66px; padding: 18px 30px; font-size: 1.05rem; }
+    .section-cta { display: flex; justify-content: center; margin-top: 34px; }
+    .section-cta .btn { min-width: min(100%, 330px); }
     .hero { min-height: 780px; display: grid; align-items: center; padding: 78px 0 88px; overflow: hidden; background: radial-gradient(circle at 18% 45%, rgba(217,21,32,.09), transparent 31rem); }
     .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 34px; }
     .hero h1 span { display: block; color: var(--red); }
@@ -295,6 +297,13 @@
     .whatsapp-float { position: fixed; z-index: 80; right: 20px; bottom: 20px; display: flex; align-items: center; gap: 9px; min-height: 50px; padding: 11px 16px; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; color: white; background: linear-gradient(135deg, #32e978, #20c95a); box-shadow: 0 14px 36px rgba(37,211,102,.28); text-decoration: none; font-size: .78rem; font-weight: 900; transition: .25s ease; }
     .whatsapp-float:hover { transform: translateY(-3px); box-shadow: 0 18px 42px rgba(37,211,102,.36); }
     .whatsapp-float svg { width: 22px; height: 22px; fill: currentColor; }
+    .activity-popup { position: fixed; z-index: 75; left: 20px; bottom: 20px; width: min(320px, calc(100vw - 40px)); display: grid; grid-template-columns: 46px 1fr; gap: 13px; align-items: center; padding: 15px 17px; border: 1px solid rgba(37,211,102,.42); border-radius: 17px; background: rgba(17,19,23,.96); color: #f5f4f1; box-shadow: 0 18px 50px rgba(0,0,0,.36); opacity: 0; visibility: hidden; transform: translateY(18px) scale(.98); transition: opacity .35s ease, transform .35s ease, visibility .35s; pointer-events: none; }
+    .activity-popup.is-visible { opacity: 1; visibility: visible; transform: none; }
+    .activity-icon { width: 46px; height: 46px; display: grid; place-items: center; border: 1px solid rgba(37,211,102,.55); border-radius: 50%; color: var(--green); background: rgba(37,211,102,.12); font-size: 1.25rem; }
+    .activity-copy strong, .activity-copy span { display: block; }
+    .activity-copy strong { font-size: .88rem; line-height: 1.25; }
+    .activity-copy span { margin-top: 4px; color: #a9a8a4; font-size: .76rem; line-height: 1.35; }
+    .activity-copy b { color: var(--green); }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
@@ -373,6 +382,8 @@
       footer { padding-bottom: 110px; }
       .whatsapp-float { right: 14px; bottom: 78px; width: 50px; padding: 0; justify-content: center; }
       .whatsapp-float span { display: none; }
+      .activity-popup { left: 12px; right: 76px; bottom: 78px; width: auto; padding: 12px 14px; grid-template-columns: 40px 1fr; }
+      .activity-icon { width: 40px; height: 40px; }
       .section:nth-of-type(even) .reveal:not(.center),
       .section:nth-of-type(odd) .reveal:not(.center),
       .reveal { transform: translateY(28px) scale(.99); }
@@ -412,7 +423,7 @@
             <div><small>Acesso completo</small><strong class="price">R$ 9,90</strong></div>
             <span class="muted">pagamento único<br>sem assinatura</span>
           </div>
-          <a class="btn large checkout-link" href="#oferta">Quero parar de treinar no improviso →</a>
+          <a class="btn large checkout-link" href="#oferta">Quero parar de treinar no improviso</a>
           <div class="trust-row"><span>Acesso imediato</span><span>Vitalício</span><span>7 dias de garantia</span><span>Compra segura</span></div>
         </div>
         <div class="hero-art reveal" aria-label="Prévia dos materiais Academia Sem Trava">
@@ -487,6 +498,7 @@
           <article class="step"><div class="step-num">05</div><h3>Progrida</h3><p>Saiba quando conquistar repetições, aumentar a carga ou manter.</p></article>
         </div>
         <div class="system-line reveal" aria-hidden="true"><div class="ticker"><span>Planeje</span><span>Execute</span><span>Registre</span><span>Compare</span><span>Progrida</span><span>Planeje</span><span>Execute</span><span>Registre</span><span>Compare</span><span>Progrida</span></div></div>
+        <div class="section-cta reveal"><a class="btn checkout-link" href="#oferta">Quero treinar com um plano</a></div>
       </div>
     </section>
 
@@ -509,6 +521,7 @@
           <div class="table-row"><div>Não resolve imprevistos</div><div>Guia de substituições por função</div></div>
           <div class="table-row"><div>Depende da memória</div><div>Diário editável e histórico</div></div>
         </div>
+        <div class="section-cta reveal"><a class="btn checkout-link" href="#oferta">Quero o sistema completo</a></div>
       </div>
     </section>
 
@@ -527,7 +540,7 @@
         <div class="offer-box reveal">
           <div class="offer-grid">
             <div class="offer-cover"><img src="capa.webp" alt="Academia Sem Trava — protocolo de 30 dias"></div>
-            <div class="offer-copy"><div class="eyebrow">Acesso vitalício</div><h3>ACADEMIA SEM TRAVA<br>PROTOCOLO DE 30 DIAS</h3><ul class="offer-list"><li>Treinos 3x, 4x ou 5x</li><li>Guia de execução</li><li>Método de progressão</li><li>Diário editável</li><li>Guia de erros</li><li>Substituições</li><li>Primeiro dia</li><li>Calendário e checklist</li></ul><div class="old-price">Depois: R$ 29,90</div><div class="offer-price"><sup>R$</sup> 9,90</div><p class="muted">Pagamento único • Sem mensalidade</p><div class="countdown" aria-label="Tempo restante da oferta"><div class="time"><strong id="days">--</strong><span>dias</span></div><div class="time"><strong id="hours">--</strong><span>horas</span></div><div class="time"><strong id="minutes">--</strong><span>min</span></div><div class="time"><strong id="seconds">--</strong><span>seg</span></div></div><a class="btn large checkout-link" href="https://pay.kiwify.com.br/SLXqsH2">Quero receber o sistema completo →</a><div class="trust-row" style="justify-content:center"><span>Checkout seguro Kiwify</span><span>Acesso vitalício</span><span>7 dias de garantia</span></div></div>
+            <div class="offer-copy"><div class="eyebrow">Acesso vitalício</div><h3>ACADEMIA SEM TRAVA<br>PROTOCOLO DE 30 DIAS</h3><ul class="offer-list"><li>Treinos 3x, 4x ou 5x</li><li>Guia de execução</li><li>Método de progressão</li><li>Diário editável</li><li>Guia de erros</li><li>Substituições</li><li>Primeiro dia</li><li>Calendário e checklist</li></ul><div class="old-price">Depois: R$ 29,90</div><div class="offer-price"><sup>R$</sup> 9,90</div><p class="muted">Pagamento único • Sem mensalidade</p><div class="countdown" aria-label="Tempo restante da oferta"><div class="time"><strong id="days">--</strong><span>dias</span></div><div class="time"><strong id="hours">--</strong><span>horas</span></div><div class="time"><strong id="minutes">--</strong><span>min</span></div><div class="time"><strong id="seconds">--</strong><span>seg</span></div></div><a class="btn large checkout-link" href="https://pay.kiwify.com.br/SLXqsH2">Quero receber o sistema completo</a><div class="trust-row" style="justify-content:center"><span>Checkout seguro Kiwify</span><span>Acesso vitalício</span><span>7 dias de garantia</span></div></div>
           </div>
         </div>
         <p class="center muted" style="margin-top:20px;font-size:.83rem">O produto continuará existindo. O que termina em 12/09/2026 às 23:59 é o preço fundador de R$ 9,90. Depois, passa para R$ 29,90.</p>
@@ -539,15 +552,15 @@
     </section>
 
     <section class="section soft" id="publico">
-      <div class="wrap"><div class="center reveal"><div class="eyebrow">Sem promessa genérica</div><h2>Veja se este produto é <span class="red">para você.</span></h2></div><div class="audience reveal"><div class="audience-card yes"><h3>É para você que...</h3><ul><li>Está começando ou ainda improvisa</li><li>Quer treinar 3, 4 ou 5 dias</li><li>Não sabe escolher ou aumentar cargas</li><li>Quer registrar sua evolução</li><li>Fica perdido quando uma máquina está ocupada</li><li>Quer dominar o básico antes do avançado</li></ul></div><div class="audience-card no"><h3>Não é para você que...</h3><ul><li>Procura acompanhamento individual</li><li>Precisa de reabilitação clínica</li><li>Espera resultado físico garantido em 30 dias</li><li>Quer um treino novo toda semana</li><li>Busca correção em tempo real</li><li>Não pretende executar nem registrar</li></ul></div></div></div>
+      <div class="wrap"><div class="center reveal"><div class="eyebrow">Sem promessa genérica</div><h2>Veja se este produto é <span class="red">para você.</span></h2></div><div class="audience reveal"><div class="audience-card yes"><h3>É para você que...</h3><ul><li>Está começando ou ainda improvisa</li><li>Quer treinar 3, 4 ou 5 dias</li><li>Não sabe escolher ou aumentar cargas</li><li>Quer registrar sua evolução</li><li>Fica perdido quando uma máquina está ocupada</li><li>Quer dominar o básico antes do avançado</li></ul></div><div class="audience-card no"><h3>Não é para você que...</h3><ul><li>Procura acompanhamento individual</li><li>Precisa de reabilitação clínica</li><li>Espera resultado físico garantido em 30 dias</li><li>Quer um treino novo toda semana</li><li>Busca correção em tempo real</li><li>Não pretende executar nem registrar</li></ul></div></div><div class="section-cta reveal"><a class="btn checkout-link" href="https://pay.kiwify.com.br/SLXqsH2">Esse é o plano que eu preciso</a></div></div>
     </section>
 
     <section class="section" id="garantia">
-      <div class="wrap"><div class="guarantee reveal"><div class="seal"><div><strong>7</strong>DIAS DE<br>GARANTIA</div></div><div><div class="eyebrow">O risco de conhecer é mínimo</div><h2>Conheça o sistema por dentro.</h2><p class="lead">Acesse os materiais e veja se fazem sentido para seu momento. Se decidir que não é para você, solicite o reembolso dentro de sete dias, conforme as regras da garantia da Kiwify.</p></div></div></div>
+      <div class="wrap"><div class="guarantee reveal"><div class="seal"><div><strong>7</strong>DIAS DE<br>GARANTIA</div></div><div><div class="eyebrow">O risco de conhecer é mínimo</div><h2>Conheça o sistema por dentro.</h2><p class="lead">Acesse os materiais e veja se fazem sentido para seu momento. Se decidir que não é para você, solicite o reembolso dentro de sete dias, conforme as regras da garantia da Kiwify.</p><div class="section-cta" style="justify-content:flex-start"><a class="btn checkout-link" href="https://pay.kiwify.com.br/SLXqsH2">Quero conhecer sem risco</a></div></div></div></div>
     </section>
 
     <section class="section red-wash">
-      <div class="wrap"><div class="center reveal"><div class="eyebrow">Seu próximo treino</div><h2>O próximo mês vai chegar de qualquer forma.<br><span class="red">Como você quer chegar até ele?</span></h2><p class="lead center">A diferença não é motivação perfeita. É entrar com direção ou continuar decidindo tudo na hora.</p></div><div class="decision reveal"><article class="decision-card stuck"><span class="decision-tag">O ciclo continua</span><h3>Continuar no improviso</h3><ul><li>Decidir o treino na hora</li><li>Tentar lembrar a carga anterior</li><li>Pesquisar cada dúvida separadamente</li><li>Trocar o plano sem saber se evoluiu</li></ul></article><article class="decision-card choice"><span class="decision-tag">Você assume o controle</span><h3>Seguir um sistema</h3><ul><li>Abrir o treino escolhido</li><li>Consultar séries, repetições e descanso</li><li>Registrar carga e esforço</li><li>Comparar e tomar a próxima decisão</li></ul><a class="btn checkout-link" href="#oferta">Quero treinar com direção →</a></article></div></div>
+      <div class="wrap"><div class="center reveal"><div class="eyebrow">Seu próximo treino</div><h2>O próximo mês vai chegar de qualquer forma.<br><span class="red">Como você quer chegar até ele?</span></h2><p class="lead center">A diferença não é motivação perfeita. É entrar com direção ou continuar decidindo tudo na hora.</p></div><div class="decision reveal"><article class="decision-card stuck"><span class="decision-tag">O ciclo continua</span><h3>Continuar no improviso</h3><ul><li>Decidir o treino na hora</li><li>Tentar lembrar a carga anterior</li><li>Pesquisar cada dúvida separadamente</li><li>Trocar o plano sem saber se evoluiu</li></ul></article><article class="decision-card choice"><span class="decision-tag">Você assume o controle</span><h3>Seguir um sistema</h3><ul><li>Abrir o treino escolhido</li><li>Consultar séries, repetições e descanso</li><li>Registrar carga e esforço</li><li>Comparar e tomar a próxima decisão</li></ul><a class="btn checkout-link" href="#oferta">Quero treinar com direção</a></article></div></div>
     </section>
 
     <section class="section" id="resultados">
@@ -591,14 +604,18 @@
     </section>
 
     <section class="section final-cta">
-      <div class="wrap reveal"><img class="logo-final" src="logo.webp" alt="Academia Sem Trava"><h2>Seu próximo treino pode começar com um plano.<br><span class="red">Não com uma dúvida.</span></h2><p class="lead center">Você não precisa saber tudo sobre musculação. Só precisa saber o que fazer hoje — e registrar o suficiente para decidir o próximo passo.</p><div class="price-line" style="justify-content:center"><div><small>Preço fundador</small><strong class="price">R$ 9,90</strong></div></div><a class="btn large checkout-link" href="#oferta">Quero começar meus 30 dias →</a><div class="trust-row" style="justify-content:center"><span>Vitalício</span><span>Pagamento único</span><span>7 dias de garantia</span></div></div>
+      <div class="wrap reveal"><img class="logo-final" src="logo.webp" alt="Academia Sem Trava"><h2>Seu próximo treino pode começar com um plano.<br><span class="red">Não com uma dúvida.</span></h2><p class="lead center">Você não precisa saber tudo sobre musculação. Só precisa saber o que fazer hoje — e registrar o suficiente para decidir o próximo passo.</p><div class="price-line" style="justify-content:center"><div><small>Preço fundador</small><strong class="price">R$ 9,90</strong></div></div><a class="btn large checkout-link" href="#oferta">Quero começar meus 30 dias</a><div class="trust-row" style="justify-content:center"><span>Vitalício</span><span>Pagamento único</span><span>7 dias de garantia</span></div></div>
     </section>
   </main>
 
   <footer><div class="wrap footer-grid"><div><strong>ACADEMIA SEM TRAVA • DYXAC LABS</strong><br>Material educacional criado por profissional graduado em Educação Física.<br>Não substitui avaliação, prescrição ou acompanhamento individual.<div class="social-links" aria-label="Instagram"><a href="https://instagram.com/arthurdyxac" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Arthur Dyxac"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@arthurdyxac</a><a href="https://instagram.com/dyxaclabs" target="_blank" rel="noopener noreferrer" aria-label="Instagram da Dyxac Labs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@dyxaclabs</a></div></div><div class="footer-links"><a href="#">Termos de uso</a><a href="#">Privacidade</a><a href="#">Reembolso</a><a href="#">Contato</a></div><div>© <span id="year"></span> Dyxac Labs</div></div></footer>
 
+  <aside class="activity-popup" aria-live="polite" aria-atomic="true">
+    <div class="activity-icon" aria-hidden="true">✓</div>
+    <div class="activity-copy"><strong id="activity-title">Acesso completo</strong><span id="activity-message">O Academia Sem Trava inclui <b>8 materiais práticos</b>.</span></div>
+  </aside>
   <a class="whatsapp-float" href="https://wa.me/5532987103745" target="_blank" rel="noopener noreferrer" aria-label="Falar com o atendimento pelo WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path transform="translate(1 0)" d="M19.11 17.24c-.26-.13-1.54-.76-1.78-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.82 1.02-.15.17-.3.2-.56.07-.26-.13-1.09-.4-2.08-1.29-.77-.69-1.29-1.53-1.44-1.79-.15-.26-.02-.4.11-.53.12-.12.26-.3.39-.46.13-.15.17-.26.26-.43.09-.17.04-.33-.02-.46-.07-.13-.59-1.41-.8-1.94-.21-.51-.43-.44-.59-.45h-.5c-.17 0-.46.07-.69.33-.24.26-.91.89-.91 2.17s.93 2.52 1.06 2.69c.13.17 1.83 2.8 4.44 3.92.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.08 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.17-.5-.3z"/><path d="M16.04 4.8a11 11 0 0 0-9.42 16.68L5.05 27.2l5.85-1.53A11 11 0 1 0 16.04 4.8zm0 19.98c-1.71 0-3.38-.46-4.84-1.32l-.35-.21-3.47.91.93-3.38-.23-.35A8.98 8.98 0 1 1 16.04 24.78z"/></svg><span>Precisa de ajuda?</span></a>
-  <div class="mobile-bar"><div class="mobile-price"><small>Preço fundador</small><strong>R$ 9,90</strong></div><a class="btn checkout-link" href="#oferta">Quero começar →</a></div>
+  <div class="mobile-bar"><div class="mobile-price"><small>Preço fundador</small><strong>R$ 9,90</strong></div><a class="btn checkout-link" href="#oferta">Quero começar</a></div>
 
   <script>
     const CHECKOUT_URL = "https://pay.kiwify.com.br/SLXqsH2";
@@ -689,6 +706,26 @@
     addEventListener("scroll", updateProgress, { passive: true });
     updateProgress();
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    const activityPopup = document.querySelector(".activity-popup");
+    const activityTitle = document.getElementById("activity-title");
+    const activityMessage = document.getElementById("activity-message");
+    const activityItems = [
+      ["Acesso completo", "O Academia Sem Trava inclui <b>8 materiais práticos</b>."],
+      ["Preço fundador ativo", "Acesso vitalício por <b>R$ 9,90</b>, pagamento único."],
+      ["Compra protegida", "Você tem <b>7 dias de garantia</b> para conhecer o sistema."],
+      ["Treino para sua rotina", "Escolha protocolos de <b>3, 4 ou 5 dias</b> por semana."]
+    ];
+    let activityIndex = 0;
+    const showActivity = () => {
+      const [title, message] = activityItems[activityIndex++ % activityItems.length];
+      activityTitle.textContent = title;
+      activityMessage.innerHTML = message;
+      activityPopup.classList.add("is-visible");
+      setTimeout(() => activityPopup.classList.remove("is-visible"), 6500);
+    };
+    setTimeout(showActivity, 9000);
+    setInterval(showActivity, 20000);
   </script>
 </body>
 </html>
