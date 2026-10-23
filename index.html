@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0a0a0b">
   <meta name="description" content="Academia Sem Trava: protocolo de 30 dias com treinos, execução, progressão, registro e substituições para parar de treinar no improviso.">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
   <title>Academia Sem Trava — 30 dias sem improviso</title>
   <style>
     :root {
@@ -49,7 +49,7 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.08'/%3E%3C/svg%3E");
       z-index: 100;
     }
-    .scroll-progress { position: fixed; z-index: 120; top: 0; left: 0; width: 100%; height: 3px; pointer-events: none; background: linear-gradient(90deg, var(--red), var(--green)); transform: scaleX(0); transform-origin: left; }
+    .scroll-progress { position: fixed; z-index: 120; top: 0; left: 0; width: 100%; height: 3px; pointer-events: none; background: var(--red); transform: scaleX(0); transform-origin: left; }
     img { display: block; max-width: 100%; }
     a { color: inherit; }
     button, a { -webkit-tap-highlight-color: transparent; }
@@ -78,9 +78,12 @@
     .center h2 { max-width: 980px; margin-inline: auto; }
     .topbar {
       position: relative; z-index: 50; background: var(--red); color: white;
-      padding: 9px 14px; text-align: center; font-weight: 900; font-size: .77rem;
-      letter-spacing: .08em; text-transform: uppercase;
+      padding: 9px 14px; text-align: center; font-weight: 700; font-size: .72rem;
+      letter-spacing: .1em; text-transform: uppercase;
+      display: flex; justify-content: center; align-items: center; gap: 12px;
     }
+    .topbar > span { font-weight: 900; font-size: .82rem; }
+    #top-countdown { font-family: "Courier New", monospace; font-weight: 900; font-variant-numeric: tabular-nums; white-space: nowrap; font-size: .94rem; letter-spacing: .06em; padding: 4px 9px; border-radius: 5px; background: #050505; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.3); line-height: 1.2; }
     .nav {
       position: sticky; top: 0; z-index: 40;
       background: #070708; border-bottom: 1px solid rgba(255,255,255,.09);
@@ -194,7 +197,14 @@
     .table-row { display: grid; grid-template-columns: 1fr 1fr; }
     .table-row > div { padding: 17px 24px; border-bottom: 1px solid var(--line); }
     .table-row > div + div { border-left: 1px solid var(--line); background: rgba(37,211,102,.035); }
-    .table-row:not(.header) > div + div { color: #e8f7ed; }
+    .table-row:not(.header) > div:first-child { color: #aaaab0; }
+    .table-row:not(.header) > div:first-child::before { content: "×"; color: #d77479; font-weight: 800; margin-right: 8px; }
+    .table-row:not(.header) > div + div { color: #e8f7ed; font-weight: 650; }
+    .table-row.header > div:last-child { color: var(--green); background: rgba(37,211,102,.09); }
+    .calendar-wrap { display: block; max-width: 780px; }
+    .calendar-wrap .calendar-bullets { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    p { line-height: 1.7; }
+    .founder-copy p { max-width: 65ch; }
     .table-row:not(.header) > div + div::before { content: "✓"; color: var(--green); font-weight: 1000; margin-right: 8px; }
     .table-row.header { font-weight: 950; text-transform: uppercase; background: #17181b; }
     .table-row:last-child > div { border-bottom: 0; }
@@ -395,10 +405,10 @@
 </head>
 <body>
   <div class="scroll-progress" aria-hidden="true"></div>
-  <div class="topbar">Preço fundador: R$ 19,90 até 12 de setembro, às 23:59</div>
+  <div class="topbar"><span>Encerra em:</span><strong id="top-countdown" aria-label="Tempo restante em dias, horas, minutos e segundos">--:--:--:--</strong></div>
   <nav class="nav" aria-label="Navegação principal">
     <div class="wrap nav-inner">
-      <a class="brand" href="#inicio" aria-label="Academia Sem Trava — início"><img src="logo.webp" alt="Academia Sem Trava"></a>
+      <a class="brand" href="#inicio" aria-label="Academia Sem Trava — início"><img src="assets/logo.webp" alt="Academia Sem Trava"></a>
       <div class="nav-links">
         <a href="#como-funciona">Como funciona</a>
         <a href="#preview">O que você recebe</a>
@@ -429,11 +439,11 @@
           <div class="trust-row"><span>Acesso imediato</span><span>Vitalício</span><span>7 dias de garantia</span><span>Compra segura</span></div>
         </div>
         <div class="hero-art reveal" aria-label="Prévia dos materiais Academia Sem Trava">
-          <div class="book main"><img src="capa.webp" alt="Capa do protocolo Academia Sem Trava"></div>
-          <div class="book b1"><img src="basico.webp" alt="Guia do Básico Bem Feito"></div>
-          <div class="book b2"><img src="progressao.webp" alt="Método de Progressão"></div>
-          <div class="book b3"><img src="substituicao.webp" alt="Guia de Substituição"></div>
-          <div class="book b4"><img src="automatico.webp" alt="Pare de Treinar no Automático"></div>
+          <div class="book main"><img src="assets/capa-edicao-2.jpeg" alt="Capa do protocolo Academia Sem Trava"></div>
+          <div class="book b1"><img src="assets/02-execucao.webp" alt="Guia do Básico Bem Feito — edição 2"></div>
+          <div class="book b2"><img src="assets/03-progressao.webp" alt="Método de Progressão — edição 2"></div>
+          <div class="book b3"><img src="assets/06-substituicao.webp" alt="Guia de Substituição — edição 2"></div>
+          <div class="book b4"><img src="assets/05-habitos.webp" alt="Pare de Treinar no Automático — edição 2"></div>
           <div class="hero-badge">3, 4 ou 5 treinos por semana</div>
         </div>
       </div>
@@ -452,12 +462,14 @@
         </div>
         <div class="carousel-shell reveal" data-carousel>
           <div class="carousel-track" tabindex="0" aria-label="Prévia dos materiais. Deslize para ver mais.">
-            <div class="preview is-active"><img src="frequencia.webp" alt="Escolha da frequência de treino" loading="eager" fetchpriority="high" decoding="async"></div>
-            <div class="preview"><img src="ficha.webp" alt="Como ler a ficha" loading="lazy" decoding="async"></div>
-            <div class="preview"><img src="carga.webp" alt="Como escolher a carga" loading="lazy" decoding="async"></div>
-            <div class="preview"><img src="registro.webp" alt="Execute, registre e progrida" loading="lazy" decoding="async"></div>
-            <div class="preview"><img src="calendario.webp" alt="Calendário dos 30 dias" loading="lazy" decoding="async"></div>
-            <div class="preview"><img src="primeiro-dia.webp" alt="Primeiro dia na academia" loading="lazy" decoding="async"></div>
+            <div class="preview is-active"><img src="assets/01-plano.webp" alt="Escolha da frequência de treino" loading="eager" fetchpriority="high" decoding="async"></div>
+            <div class="preview"><img src="assets/02-execucao.webp" alt="Como ler a ficha" loading="lazy" decoding="async"></div>
+            <div class="preview"><img src="assets/03-progressao.webp" alt="Como escolher a carga" loading="lazy" decoding="async"></div>
+            <div class="preview"><img src="assets/04-diario.webp" alt="Execute, registre e progrida" loading="lazy" decoding="async"></div>
+            <div class="preview"><img src="assets/08-checklist.webp" alt="Calendário dos 30 dias" loading="lazy" decoding="async"></div>
+            <div class="preview"><img src="assets/07-primeiro-dia.webp" alt="Primeiro dia na academia" loading="lazy" decoding="async"></div>
+            <div class="preview"><img src="assets/05-habitos.webp" alt="Pare de treinar no automático — edição 2" loading="lazy"></div>
+            <div class="preview"><img src="assets/06-substituicao.webp" alt="Substituição de exercícios — edição 2" loading="lazy"></div>
           </div>
           <div class="carousel-ui"><button class="carousel-arrow prev" type="button" aria-label="Anterior">←</button><div class="carousel-dots" aria-label="Posição no carrossel"></div><button class="carousel-arrow next" type="button" aria-label="Próximo">→</button></div>
         </div>
@@ -506,7 +518,6 @@
 
     <section class="section soft">
       <div class="wrap calendar-wrap">
-        <div class="calendar-image reveal"><img src="calendario.webp" alt="Calendário de 30 dias do Academia Sem Trava" loading="lazy"></div>
         <div class="reveal"><div class="eyebrow">Seus próximos 30 dias</div><h2>Consistência antes de <span class="red">perfeição.</span></h2><p class="lead">Sua missão não é procurar um treino melhor amanhã. É executar, registrar e aprender com o plano escolhido.</p><div class="calendar-bullets"><div><b>✓</b>Escolha uma frequência realista</div><div><b>✓</b>Execute sem trocar por impulso</div><div><b>✓</b>Registre as sessões</div><div><b>✓</b>Compare o desempenho</div><div><b>✓</b>Progrida quando houver critério</div></div></div>
       </div>
     </section>
@@ -529,7 +540,7 @@
 
     <section class="section soft" id="autoridade">
       <div class="wrap founder">
-        <div class="founder-portrait reveal"><img src="arthur-dyxac-profissional-square.png" alt="Arthur Dyxac, personal trainer e criador do Academia Sem Trava" loading="lazy"></div>
+        <div class="founder-portrait reveal"><img src="assets/arthur-dyxac-profissional-square.png" alt="Arthur Dyxac, personal trainer e criador do Academia Sem Trava" loading="lazy"></div>
         <div class="founder-copy reveal"><div class="eyebrow">Arthur Dyxac • Personal Trainer</div><h2>Criado por quem vê as mesmas dúvidas <span class="red">todos os dias.</span></h2><p>Eu sou <strong>Arthur Dyxac</strong>, criador do Academia Sem Trava e graduado em Educação Física. Este sistema surgiu depois de observar as mesmas perguntas se repetirem: qual treino fazer, qual carga usar, quanto descansar, quando progredir e o que fazer quando algo não sai como planejado.</p><p>Eu também não acordo motivado todos os dias. Treino porque quero saúde, força física e mental e a disciplina de ser melhor do que fui ontem. Faço isso por mim e para estar à altura das pessoas que amo — meu irmão e meus pais.</p><p>Aprendi que ninguém pode fazer essa escolha por nós. Por isso, ensino autonomia aos meus alunos: quero que entendam o que estão fazendo e consigam tomar boas decisões, sabendo que continuarei de prontidão para explicar e ajudar quantas vezes for preciso.</p><p>Foi essa mesma independência que organizei no Academia Sem Trava: direção suficiente para você agir, registrar e evoluir sem ficar refém do improviso.</p><div class="quote">“Se você não fizer por você, ninguém vai.”<br><small>— Arthur Dyxac</small></div><p class="muted"><strong>Transparência:</strong> este é um material educacional com protocolos gerais. Não inclui avaliação, personalização nem acompanhamento individual.</p></div>
       </div>
     </section>
@@ -538,14 +549,14 @@
       <div class="wrap">
         <div class="center reveal"><div class="eyebrow">Comparação honesta</div><h2>Orientação individual custa muito mais.<br><span class="red">Começar organizado não precisa.</span></h2><p class="lead center">O produto não substitui acompanhamento individual. Ele oferece um caminho educacional acessível para quem precisa organizar o básico.</p></div>
         <div class="value-grid reveal"><div class="value-card costly"><span class="value-label">Personal presencial individual<br>5x por semana</span><strong>R$ 640/mês</strong><span>Acompanhamento próximo e personalizado</span></div><div class="value-card costly"><span class="value-label">Consultoria ou<br>ficha individual</span><strong>A partir de R$ 80</strong><span>Avaliação e direcionamento individual</span></div><div class="value-card best"><span class="value-label">Academia Sem Trava<br>acesso completo e vitalício</span><strong>R$ 19,90</strong><span>Pagamento único, sem assinatura</span></div></div>
-        <div class="center reveal" style="margin-top:64px"><div class="eyebrow">Por que este preço?</div><h2>Você está entrando na <span class="red">fase fundadora.</span></h2><p class="lead center">São cerca de R$ 0,66 por dia durante os 30 dias do protocolo — menos que um lanche — e os materiais continuam com você para sempre.</p></div>
+        <div class="center reveal" style="margin-top:64px"><div class="eyebrow">Por que este preço?</div><h2>Você está entrando na <span class="red">nova edição.</span></h2><p class="lead center">São cerca de R$ 0,66 por dia durante os 30 dias do protocolo — menos que um lanche — e os materiais continuam com você para sempre.</p></div>
         <div class="offer-box reveal">
           <div class="offer-grid">
-            <div class="offer-cover"><img src="capa.webp" alt="Academia Sem Trava — protocolo de 30 dias"></div>
+            <div class="offer-cover"><img src="assets/capa-edicao-2.jpeg" alt="Academia Sem Trava — protocolo de 30 dias"></div>
             <div class="offer-copy"><div class="eyebrow">Acesso vitalício</div><h3>ACADEMIA SEM TRAVA<br>PROTOCOLO DE 30 DIAS</h3><ul class="offer-list"><li>Treinos 3x, 4x ou 5x</li><li>Guia de execução</li><li>Método de progressão</li><li>Diário editável</li><li>Guia de erros</li><li>Substituições</li><li>Primeiro dia</li><li>Calendário e checklist</li></ul><div class="old-price">Depois: R$ 29,90</div><div class="offer-price"><sup>R$</sup> 19,90</div><p class="muted">Pagamento único • Sem mensalidade • Acesso para sempre</p><div class="countdown" aria-label="Tempo restante da oferta"><div class="time"><strong id="days">--</strong><span>dias</span></div><div class="time"><strong id="hours">--</strong><span>horas</span></div><div class="time"><strong id="minutes">--</strong><span>min</span></div><div class="time"><strong id="seconds">--</strong><span>seg</span></div></div><a class="btn large checkout-link" href="https://pay.kiwify.com.br/SLXqsH2">Quero receber o sistema completo</a><div class="trust-row" style="justify-content:center"><span>Checkout seguro Kiwify</span><span>Acesso vitalício</span><span>7 dias de garantia</span></div></div>
           </div>
         </div>
-        <p class="center muted" style="margin-top:20px;font-size:.83rem">O produto continuará existindo. O que termina em 12/09/2026 às 23:59 é o preço fundador de R$ 19,90. Depois, passa para R$ 29,90.</p>
+        <p class="center muted" style="margin-top:20px;font-size:.83rem">O produto continuará existindo. O que termina em 30/11/2026 às 23:59 é o preço de lançamento de R$ 19,90. Depois, passa para R$ 29,90.</p>
       </div>
     </section>
 
@@ -569,21 +580,21 @@
       <div class="wrap"><div class="center reveal"><div class="eyebrow">Evolução construída</div><h2>Quando existe direção, o esforço deixa de ser <span class="red">solto.</span></h2><p class="lead center">Resultados reais variam de pessoa para pessoa. Estas imagens mostram evoluções individuais obtidas com consistência, treino e acompanhamento.</p></div>
         <div class="carousel-shell result-carousel reveal" data-carousel>
           <div class="carousel-track" tabindex="0" aria-label="Resultados de alunos. Deslize para ver mais.">
-            <figure class="result-card is-active"><img src="resultado-01.webp" alt="Evolução física de aluno, antes e depois" loading="lazy"><figcaption class="result-note">Resultado individual • Cada pessoa responde de forma diferente</figcaption></figure>
-            <figure class="result-card"><img src="resultado-02.webp" alt="Evolução física de aluno, antes e depois" loading="lazy"><figcaption class="result-note">Resultado individual • Cada pessoa responde de forma diferente</figcaption></figure>
-            <figure class="result-card"><img src="resultado-03.webp" alt="Evolução física de aluno, antes e depois" loading="lazy"><figcaption class="result-note">Resultado individual • Cada pessoa responde de forma diferente</figcaption></figure>
-            <figure class="result-card"><img src="resultado-04.webp" alt="Evolução física de aluna, antes e depois" loading="lazy"><figcaption class="result-note">Resultado individual • Cada pessoa responde de forma diferente</figcaption></figure>
-            <figure class="result-card"><img src="resultado-05.webp" alt="Evolução física de aluna, antes e depois" loading="lazy"><figcaption class="result-note">Resultado individual • Cada pessoa responde de forma diferente</figcaption></figure>
-            <figure class="result-card"><img src="resultado-06.webp" alt="Evolução física de aluna, antes e depois" loading="lazy"><figcaption class="result-note">Resultado individual • Cada pessoa responde de forma diferente</figcaption></figure>
-            <figure class="result-card"><img src="resultado-07.webp" alt="Evolução física de aluna, antes e depois" loading="lazy"><figcaption class="result-note">Resultado individual • Cada pessoa responde de forma diferente</figcaption></figure>
+            <figure class="result-card is-active"><img src="assets/resultado-01.webp" alt="Evolução física de aluno, antes e depois" loading="lazy"><figcaption class="result-note">Resultado individual • Cada pessoa responde de forma diferente</figcaption></figure>
+            <figure class="result-card"><img src="assets/resultado-02.webp" alt="Evolução física de aluno, antes e depois" loading="lazy"><figcaption class="result-note">Resultado individual • Cada pessoa responde de forma diferente</figcaption></figure>
+            <figure class="result-card"><img src="assets/resultado-03.webp" alt="Evolução física de aluno, antes e depois" loading="lazy"><figcaption class="result-note">Resultado individual • Cada pessoa responde de forma diferente</figcaption></figure>
+            <figure class="result-card"><img src="assets/resultado-04.webp" alt="Evolução física de aluna, antes e depois" loading="lazy"><figcaption class="result-note">Resultado individual • Cada pessoa responde de forma diferente</figcaption></figure>
+            <figure class="result-card"><img src="assets/resultado-05.webp" alt="Evolução física de aluna, antes e depois" loading="lazy"><figcaption class="result-note">Resultado individual • Cada pessoa responde de forma diferente</figcaption></figure>
+            <figure class="result-card"><img src="assets/resultado-06.webp" alt="Evolução física de aluna, antes e depois" loading="lazy"><figcaption class="result-note">Resultado individual • Cada pessoa responde de forma diferente</figcaption></figure>
+            <figure class="result-card"><img src="assets/resultado-07.webp" alt="Evolução física de aluna, antes e depois" loading="lazy"><figcaption class="result-note">Resultado individual • Cada pessoa responde de forma diferente</figcaption></figure>
           </div>
           <div class="carousel-ui"><button class="carousel-arrow prev" type="button" aria-label="Resultado anterior">←</button><div class="carousel-dots" aria-label="Posição no carrossel"></div><button class="carousel-arrow next" type="button" aria-label="Próximo resultado">→</button></div>
         </div>
         <div class="center reveal" id="depoimentos" style="margin-top:72px"><div class="eyebrow">Quem já começou</div><h2>Mais clareza. Menos improviso.<br><span class="red">Na prática.</span></h2><p class="lead center">Relatos de quem usou o material para organizar a rotina e entender melhor o próprio treino.</p></div><div class="testimonials-placeholder reveal">
-        <article class="testimonial"><div class="testimonial-head"><img src="lucas-m.jpeg" alt="Lucas M." loading="lazy"><div><strong>Lucas M.</strong><span class="stars" aria-label="5 de 5 estrelas">★★★★★</span></div></div><p>“O que mais gostei foi que não fica inventando exercício diferente toda hora. Abri o treino no celular e consegui seguir sem ficar pensando no que fazer depois.”</p></article>
-        <article class="testimonial"><div class="testimonial-head"><img src="mariana-r.jpeg" alt="Mariana R." loading="lazy"><div><strong>Mariana R.</strong><span class="stars" aria-label="5 de 5 estrelas">★★★★★</span></div></div><p>“Eu sempre ficava meio perdida com carga e repetições. O material é bem direto e finalmente consegui entender melhor como acompanhar meus treinos.”</p></article>
-        <article class="testimonial"><div class="testimonial-head"><img src="gabriel-s.jpeg" alt="Gabriel S." loading="lazy"><div><strong>Gabriel S.</strong><span class="stars" aria-label="5 de 5 estrelas">★★★★★</span></div></div><p>“Achei que seria só mais uma ficha de treino, mas tem bastante coisa explicando execução e progressão. Pelo valor, me surpreendeu bastante.”</p></article>
-        <article class="testimonial"><div class="testimonial-head"><img src="ana-c.jpeg" alt="Ana C." loading="lazy"><div><strong>Ana C.</strong><span class="stars" aria-label="5 de 5 estrelas">★★★★★</span></div></div><p>“Voltei pra academia agora e queria justamente algo simples pra me organizar. Gostei porque consigo olhar tudo pelo celular durante o treino sem complicação.”</p></article>
+        <article class="testimonial"><div class="testimonial-head"><img src="assets/lucas-m.jpeg" alt="Lucas M." loading="lazy"><div><strong>Lucas M.</strong><span class="stars" aria-label="5 de 5 estrelas">★★★★★</span></div></div><p>“O que mais gostei foi que não fica inventando exercício diferente toda hora. Abri o treino no celular e consegui seguir sem ficar pensando no que fazer depois.”</p></article>
+        <article class="testimonial"><div class="testimonial-head"><img src="assets/mariana-r.jpeg" alt="Mariana R." loading="lazy"><div><strong>Mariana R.</strong><span class="stars" aria-label="5 de 5 estrelas">★★★★★</span></div></div><p>“Eu sempre ficava meio perdida com carga e repetições. O material é bem direto e finalmente consegui entender melhor como acompanhar meus treinos.”</p></article>
+        <article class="testimonial"><div class="testimonial-head"><img src="assets/gabriel-s.jpeg" alt="Gabriel S." loading="lazy"><div><strong>Gabriel S.</strong><span class="stars" aria-label="5 de 5 estrelas">★★★★★</span></div></div><p>“Achei que seria só mais uma ficha de treino, mas tem bastante coisa explicando execução e progressão. Pelo valor, me surpreendeu bastante.”</p></article>
+        <article class="testimonial"><div class="testimonial-head"><img src="assets/ana-c.jpeg" alt="Ana C." loading="lazy"><div><strong>Ana C.</strong><span class="stars" aria-label="5 de 5 estrelas">★★★★★</span></div></div><p>“Voltei pra academia agora e queria justamente algo simples pra me organizar. Gostei porque consigo olhar tudo pelo celular durante o treino sem complicação.”</p></article>
       </div>
       </div>
     </section>
@@ -606,7 +617,7 @@
     </section>
 
     <section class="section final-cta">
-      <div class="wrap reveal"><img class="logo-final" src="logo.webp" alt="Academia Sem Trava"><h2>Seu próximo treino pode começar com um plano.<br><span class="red">Não com uma dúvida.</span></h2><p class="lead center">Você não precisa saber tudo sobre musculação. Só precisa saber o que fazer hoje — e registrar o suficiente para decidir o próximo passo.</p><div class="price-line" style="justify-content:center"><div><small>Preço fundador • acesso vitalício</small><strong class="price">R$ 19,90</strong></div></div><a class="btn large checkout-link" href="#oferta">Quero começar meus 30 dias</a><div class="trust-row" style="justify-content:center"><span>Vitalício</span><span>Pagamento único</span><span>7 dias de garantia</span></div></div>
+      <div class="wrap reveal"><img class="logo-final" src="assets/logo.webp" alt="Academia Sem Trava"><h2>Seu próximo treino pode começar com um plano.<br><span class="red">Não com uma dúvida.</span></h2><p class="lead center">Você não precisa saber tudo sobre musculação. Só precisa saber o que fazer hoje — e registrar o suficiente para decidir o próximo passo.</p><div class="price-line" style="justify-content:center"><div><small>Preço de lançamento • acesso vitalício</small><strong class="price">R$ 19,90</strong></div></div><a class="btn large checkout-link" href="#oferta">Quero começar meus 30 dias</a><div class="trust-row" style="justify-content:center"><span>Vitalício</span><span>Pagamento único</span><span>7 dias de garantia</span></div></div>
     </section>
   </main>
 
@@ -617,7 +628,7 @@
     <div class="activity-copy"><strong id="activity-title">Acesso completo</strong><span id="activity-message">O Academia Sem Trava inclui <b>8 materiais práticos</b>.</span></div>
   </aside>
   <a class="whatsapp-float" href="https://wa.me/5532987103745" target="_blank" rel="noopener noreferrer" aria-label="Falar com o atendimento pelo WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path transform="translate(1 0)" d="M19.11 17.24c-.26-.13-1.54-.76-1.78-.85-.24-.09-.41-.13-.59.13-.17.26-.67.85-.82 1.02-.15.17-.3.2-.56.07-.26-.13-1.09-.4-2.08-1.29-.77-.69-1.29-1.53-1.44-1.79-.15-.26-.02-.4.11-.53.12-.12.26-.3.39-.46.13-.15.17-.26.26-.43.09-.17.04-.33-.02-.46-.07-.13-.59-1.41-.8-1.94-.21-.51-.43-.44-.59-.45h-.5c-.17 0-.46.07-.69.33-.24.26-.91.89-.91 2.17s.93 2.52 1.06 2.69c.13.17 1.83 2.8 4.44 3.92.62.27 1.1.43 1.48.55.62.2 1.19.17 1.64.1.5-.08 1.54-.63 1.76-1.24.22-.61.22-1.13.15-1.24-.06-.11-.24-.17-.5-.3z"/><path d="M16.04 4.8a11 11 0 0 0-9.42 16.68L5.05 27.2l5.85-1.53A11 11 0 1 0 16.04 4.8zm0 19.98c-1.71 0-3.38-.46-4.84-1.32l-.35-.21-3.47.91.93-3.38-.23-.35A8.98 8.98 0 1 1 16.04 24.78z"/></svg><span>Precisa de ajuda?</span></a>
-  <div class="mobile-bar"><div class="mobile-price"><small>Preço fundador</small><strong>R$ 19,90</strong></div><a class="btn checkout-link" href="#oferta">Quero começar</a></div>
+  <div class="mobile-bar"><div class="mobile-price"><small>Preço de lançamento</small><strong>R$ 19,90</strong></div><a class="btn checkout-link" href="#oferta">Quero começar</a></div>
 
   <script>
     const CHECKOUT_URL = "https://pay.kiwify.com.br/SLXqsH2";
@@ -629,8 +640,8 @@
       });
     }
 
-    // Oferta real: 12 de setembro de 2026, 23:59, horário de São Paulo (UTC-3).
-    const deadline = new Date("2026-12-31T23:59:00-03:00");
+    // Oferta real: 30 de novembro de 2026, 23:59, horário de São Paulo (UTC-3).
+    const deadline = new Date("2026-11-30T23:59:00-03:00");
     const ids = ["days", "hours", "minutes", "seconds"];
     function updateCountdown() {
       const remaining = Math.max(0, deadline.getTime() - Date.now());
@@ -640,6 +651,8 @@
         Math.floor((remaining % 3600000) / 60000),
         Math.floor((remaining % 60000) / 1000)
       ];
+      const topCountdown = document.getElementById("top-countdown");
+      if (topCountdown) topCountdown.textContent = values.map(value => String(value).padStart(2,"0")).join(":");
       ids.forEach((id, index) => {
         const node = document.getElementById(id);
         if (node) node.textContent = String(values[index]).padStart(2, "0");
@@ -714,7 +727,7 @@
     const activityMessage = document.getElementById("activity-message");
     const activityItems = [
       ["Acesso completo", "O Academia Sem Trava inclui <b>8 materiais práticos</b>."],
-      ["Preço fundador ativo", "Acesso vitalício por <b>R$ 19,90</b>, pagamento único."],
+      ["Preço de lançamento ativo", "Acesso vitalício por <b>R$ 19,90</b>, pagamento único."],
       ["Compra protegida", "Você tem <b>7 dias de garantia</b> para conhecer o sistema."],
       ["Treino para sua rotina", "Escolha protocolos de <b>3, 4 ou 5 dias</b> por semana."]
     ];
@@ -731,4 +744,3 @@
   </script>
 </body>
 </html>
-
